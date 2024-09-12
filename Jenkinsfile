@@ -34,6 +34,13 @@ pipeline {
                 // Tool: OWASP Dependency-Check
                
             }
+            post {
+                always {
+                    mail to: "kaveen11111@gmail.com",
+                    subject: "Security Scan Status Email",
+                    body: "Security Scan was successful."
+                }
+            }
         }
         stage('Deploy to Staging') {
             steps {
@@ -47,6 +54,13 @@ pipeline {
                 echo 'Running integration tests on staging...'
                 // Tool: Similar tools as for Stage 2
              
+            }
+            post {
+                always {
+                    mail to: "kaveen11111@gmail.com",
+                    subject: "Tesitng Status Email",
+                    body: "The Test was successful."
+                }
             }
         }
         stage('Deploy to Production') {
