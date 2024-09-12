@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the code...'
+                //tools: maven
             }
             post {
                 always {
@@ -14,19 +15,45 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
+        stage('Unit and Integration Tests') {
             steps {
-                echo 'Testing the code...'
+                echo 'Running unit and integration tests...'
+                // Tool: JUnit for unit tests, Selenium for integration tests
             }
         }
-        stage('Deploy') {
+        stage('Code Analysis') {
             steps {
-                echo 'Deploying the code...'
+                echo 'Analyzing code...'
+                // Tool: SonarQube
+              
             }
         }
-        stage('Complete') {
+        stage('Security Scan') {
             steps {
-                echo 'Completed the code...'
+                echo 'Performing security scan...'
+                // Tool: OWASP Dependency-Check
+               
+            }
+        }
+        stage('Deploy to Staging') {
+            steps {
+                echo 'Deploying to staging...'
+                // Tool: AWS CLI or deployment scripts
+               
+            }
+        }
+        stage('Integration Tests on Staging') {
+            steps {
+                echo 'Running integration tests on staging...'
+                // Tool: Similar tools as for Stage 2
+             
+            }
+        }
+        stage('Deploy to Production') {
+            steps {
+                echo 'Deploying to production...'
+                // Tool: AWS CLI or deployment scripts
+              
             }
         }
     }
