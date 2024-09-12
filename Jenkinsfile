@@ -7,13 +7,6 @@ pipeline {
                 echo 'Building the code...'
                 //tools: maven
             }
-            post {
-                always {
-                    mail to: "kaveen11111@gmail.com",
-                    subject: "Build Status Email",
-                    body: "The build was successful."
-                }
-            }
         }
         stage('Unit and Integration Tests') {
             steps {
