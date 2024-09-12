@@ -63,6 +63,13 @@ pipeline {
               
             }
         }
+        stage('Complete process') {
+            steps {
+                echo 'Complete to production...'
+                // Tool: AWS CLI or deployment scripts
+              
+            }
+        }
     }
 }
 
