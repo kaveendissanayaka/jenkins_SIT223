@@ -32,6 +32,7 @@ pipeline {
                     mail to: "kaveen11111@gmail.com",
                     subject: "Security Scan Status Email",
                     body: "Security Scan was successful."
+                    attachLog: true
                 }
             }
         }
@@ -53,6 +54,8 @@ pipeline {
                     mail to: "kaveen11111@gmail.com",
                     subject: "Tesitng Status Email",
                     body: "The Test was successful."
+                    attachLog: true
+                    
                 }
             }
         }
