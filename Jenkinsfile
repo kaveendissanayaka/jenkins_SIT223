@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the code...'
-                //tools: maven
+                // tools: maven
             }
         }
         stage('Unit and Integration Tests') {
@@ -67,4 +67,8 @@ pipeline {
         stage('Complete process') {
             steps {
                 echo 'Completed deployment to production...'
-                // Tool
+                // Tool: AWS CLI or deployment scripts
+            }
+        }
+    }
+}
