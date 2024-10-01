@@ -18,22 +18,21 @@ pipeline {
             steps {
                 echo 'Analyzing code...'
                 // Tool: SonarQube
-              
             }
         }
         stage('Security Scan') {
             steps {
                 echo 'Performing security scan...'
                 // Tool: OWASP Dependency-Check
-               
             }
             post {
                 always {
-                    mail to: "kaveen11111@gmail.com",
-                    subject: "Security Scan Status Email",
-                    body: "Security Scan was successful."
-                    attachlogs: true
-                 
+                    emailext (
+                        to: "kaveen11111@gmail.com",
+                        subject: "Security Scan Status Email",
+                        body: "Security Scan was successful.",
+                        attachlogs: true // Use this with emailext
+                    )
                 }
             }
         }
@@ -41,22 +40,21 @@ pipeline {
             steps {
                 echo 'Deploying to staging...'
                 // Tool: AWS CLI or deployment scripts
-               
             }
         }
         stage('Integration Tests on Staging') {
             steps {
                 echo 'Running integration tests on staging...'
                 // Tool: Similar tools as for Stage 2
-             
             }
             post {
                 always {
-                    mail to: "kaveen11111@gmail.com",
-                    subject: "Tesitng Status Email",
-                    body: "The Test was successful."
-                    attachlogs: true
-                    
+                    emailext (
+                        to: "kaveen11111@gmail.com",
+                        subject: "Testing Status Email",
+                        body: "The Test was successful.",
+                        attachlogs: true // Use this with emailext
+                    )
                 }
             }
         }
@@ -64,16 +62,13 @@ pipeline {
             steps {
                 echo 'Deploying to production...'
                 // Tool: AWS CLI or deployment scripts
-              
             }
         }
         stage('Complete process') {
             steps {
-                echo 'Complete to production...'
+                echo 'Completed deployment to production...'
                 // Tool: AWS CLI or deployment scripts
-              
             }
         }
     }
 }
-
