@@ -87,30 +87,5 @@ pipeline {
         }
     }
 
-    post {
-        success {
-            emailext (
-                to: "kaveen11111@gmail.com",
-                subject: "Build Successful: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
-                body: "The build was successful!",
-                attachLog: true // Attach the log files
-            )
-        }
-        failure {
-            emailext (
-                to: "kaveen11111@gmail.com",
-                subject: "Build Failed: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
-                body: "The build failed.",
-                attachLog: true // Attach the log files
-            )
-        }
-        unstable {
-            emailext (
-                to: "kaveen11111@gmail.com",
-                subject: "Build Unstable: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
-                body: "The build is unstable.",
-                attachLog: true // Attach the log files
-            )
-        }
-    }
+   
 }
