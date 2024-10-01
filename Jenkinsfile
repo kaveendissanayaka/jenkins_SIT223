@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Building the code...'
+                echo 'Building the codes...'
                 // Add your build commands here
             }
         }
