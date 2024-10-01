@@ -23,7 +23,7 @@ pipeline {
                     emailext (
                         to: "kaveen11111@gmail.com",
                         subject: "Unit and Integration Tests Successful: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
-                        body: "The unit and integration tests were successful!\n\nCheck the details at ${env.BUILD_URL}.",
+                        body: "The unit and integration tests were successful!.",
                         attachLog: true // Attach the log files
                     )
                 }
@@ -31,7 +31,7 @@ pipeline {
                     emailext (
                         to: "kaveen11111@gmail.com",
                         subject: "Unit and Integration Tests Failed: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
-                        body: "The unit and integration tests failed.\n\nCheck the details at ${env.BUILD_URL}.",
+                        body: "The unit and integration tests failed..",
                         attachLog: true // Attach the log files
                     )
                 }
@@ -53,7 +53,7 @@ pipeline {
                     emailext (
                         to: "kaveen11111@gmail.com",
                         subject: "Security Scan Successful: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
-                        body: "The security scan was successful!\n\nCheck the details at ${env.BUILD_URL}.",
+                        body: "The security scan was successful!.",
                         attachLog: true // Attach the log files
                     )
                 }
@@ -61,7 +61,7 @@ pipeline {
                     emailext (
                         to: "kaveen11111@gmail.com",
                         subject: "Security Scan Failed: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
-                        body: "The security scan failed.\n\nCheck the details at ${env.BUILD_URL}.",
+                        body: "The security scan failed.",
                         attachLog: true // Attach the log files
                     )
                 }
@@ -92,7 +92,7 @@ pipeline {
             emailext (
                 to: "kaveen11111@gmail.com",
                 subject: "Build Successful: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
-                body: "The build was successful!\n\nCheck the details at ${env.BUILD_URL}.",
+                body: "The build was successful!",
                 attachLog: true // Attach the log files
             )
         }
@@ -100,7 +100,7 @@ pipeline {
             emailext (
                 to: "kaveen11111@gmail.com",
                 subject: "Build Failed: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
-                body: "The build failed.\n\nCheck the details at ${env.BUILD_URL}.",
+                body: "The build failed.",
                 attachLog: true // Attach the log files
             )
         }
@@ -108,7 +108,7 @@ pipeline {
             emailext (
                 to: "kaveen11111@gmail.com",
                 subject: "Build Unstable: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
-                body: "The build is unstable.\n\nCheck the details at ${env.BUILD_URL}.",
+                body: "The build is unstable.",
                 attachLog: true // Attach the log files
             )
         }
