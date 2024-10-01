@@ -27,12 +27,17 @@ pipeline {
             }
             post {
                 always {
-                    emailext(
-                        to: "kaveen11111@gmail.com",
-                        subject: "Security Scan Status Email",
-                        body: "Security Scan was successful. Please find the logs attached.",
-                       // Keep this for log attachment
-                    )
+                    script {
+                        // Save the log to a file
+                        def logFile = 'security_scan.log'
+                        sh "echo 'Security Scan was successful.' > ${logFile}"
+
+                        // Send email with log attached
+                        sh """
+                        echo "Security Scan was successful. Please find the logs attached." | \
+                        mail -s "Security Scan Status Email" -A ${logFile} kaveen11111@gmail.com
+                        """
+                    }
                 }
             }
         }
@@ -49,12 +54,17 @@ pipeline {
             }
             post {
                 always {
-                    emailext(
-                        to: "kaveen11111@gmail.com",
-                        subject: "Testing Status Email",
-                        body: "The test was successful. Please find the logs attached.",
-                 
-                    )
+                    script {
+                        // Save the log to a file
+                        def logFile = 'integration_test.log'
+                        sh "echo 'The test was successful.' > ${logFile}"
+
+                        // Send email with log attached
+                        sh """
+                        echo "The test was successful. Please find the logs attached." | \
+                        mail -s "Testing Status Email" -A ${logFile} kaveen11111@gmail.com
+                        """
+                    }
                 }
             }
         }
