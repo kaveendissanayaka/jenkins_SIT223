@@ -31,7 +31,7 @@ pipeline {
                         to: "kaveen11111@gmail.com",
                         subject: "Security Scan Status Email",
                         body: "Security Scan was successful. Please find the logs attached.",
-                        attachLog: true
+                        attachLog: true // Keep this for log attachment
                     )
                 }
             }
@@ -66,7 +66,7 @@ pipeline {
         }
         stage('Complete process') {
             steps {
-                echo 'Complete to production...'
+                echo 'Completed deployment to production...'
                 // Tool: AWS CLI or deployment scripts
             }
         }
