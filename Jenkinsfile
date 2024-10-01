@@ -31,7 +31,7 @@ pipeline {
                         to: "kaveen11111@gmail.com",
                         subject: "Security Scan Status Email",
                         body: "Security Scan was successful.",
-                        attachlogs: true // Use this with emailext
+                        attachLog: true // Corrected parameter
                     )
                 }
             }
@@ -53,22 +53,9 @@ pipeline {
                         to: "kaveen11111@gmail.com",
                         subject: "Testing Status Email",
                         body: "The Test was successful.",
-                        attachlogs: true // Use this with emailext
+                        attachLog: true // Corrected parameter
                     )
                 }
             }
         }
-        stage('Deploy to Production') {
-            steps {
-                echo 'Deploying to production...'
-                // Tool: AWS CLI or deployment scripts
-            }
-        }
-        stage('Complete process') {
-            steps {
-                echo 'Completed deployment to production...'
-                // Tool: AWS CLI or deployment scripts
-            }
-        }
-    }
-}
+     
