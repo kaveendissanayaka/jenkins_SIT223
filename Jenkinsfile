@@ -58,4 +58,13 @@ pipeline {
                 }
             }
         }
-     
+        stage('Deploy to Production') {
+            steps {
+                echo 'Deploying to production...'
+                // Tool: AWS CLI or deployment scripts
+            }
+        }
+        stage('Complete process') {
+            steps {
+                echo 'Completed deployment to production...'
+                // Tool
