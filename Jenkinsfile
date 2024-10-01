@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the code...'
-                // tools: maven
+                //tools: maven
             }
         }
         stage('Unit and Integration Tests') {
@@ -18,21 +18,21 @@ pipeline {
             steps {
                 echo 'Analyzing code...'
                 // Tool: SonarQube
+              
             }
         }
         stage('Security Scan') {
             steps {
                 echo 'Performing security scan...'
                 // Tool: OWASP Dependency-Check
+               
             }
             post {
                 always {
-                    emailext(
-                        to: "kaveen11111@gmail.com",
-                        subject: "Security Scan Status Email",
-                        body: "Security Scan was successful. Please find the logs attached.",
-                        attachLog: true
-                    )
+                    mail to: "kaveen11111@gmail.com",
+                    subject: "Security Scan Status Email",
+                    body: "Security Scan was successful."
+                 
                 }
             }
         }
@@ -40,21 +40,22 @@ pipeline {
             steps {
                 echo 'Deploying to staging...'
                 // Tool: AWS CLI or deployment scripts
+               
             }
         }
         stage('Integration Tests on Staging') {
             steps {
                 echo 'Running integration tests on staging...'
                 // Tool: Similar tools as for Stage 2
+             
             }
             post {
                 always {
-                    emailext(
-                        to: "kaveen11111@gmail.com",
-                        subject: "Testing Status Email",
-                        body: "The test was successful. Please find the logs attached.",
-                        attachLog: true
-                    )
+                    mail to: "kaveen11111@gmail.com",
+                    subject: "Tesitng Status Email",
+                    body: "The Test was successful."
+                    
+                    
                 }
             }
         }
@@ -62,13 +63,16 @@ pipeline {
             steps {
                 echo 'Deploying to production...'
                 // Tool: AWS CLI or deployment scripts
+              
             }
         }
         stage('Complete process') {
             steps {
                 echo 'Complete to production...'
                 // Tool: AWS CLI or deployment scripts
+              
             }
         }
     }
 }
+
