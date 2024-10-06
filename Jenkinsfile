@@ -29,7 +29,7 @@ pipeline {
                 }
                 failure {
                     emailext (
-                        to: "kaveen11111@gmail.com",
+                        to: "nimeshmakevita@gmail.com",
                         subject: "Unit and Integration Tests Failed: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
                         body: "The unit and integration tests failed..",
                         attachLog: true // Attach the log files
@@ -51,7 +51,7 @@ pipeline {
             post {
                 success {
                     emailext (
-                        to: "kaveen11111@gmail.com",
+                        to: "nimeshmakevita@gmail.com",
                         subject: "Security Scan Successful: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
                         body: "The security scan was successful!.",
                         attachLog: true // Attach the log files
@@ -59,7 +59,7 @@ pipeline {
                 }
                 failure {
                     emailext (
-                        to: "kaveen11111@gmail.com",
+                        to: "nimeshmakevita@gmail.com",
                         subject: "Security Scan Failed: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
                         body: "The security scan failed.",
                         attachLog: true // Attach the log files
