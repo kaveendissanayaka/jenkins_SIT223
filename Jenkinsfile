@@ -21,7 +21,7 @@ pipeline {
             post {
                 success {
                     emailext (
-                        to: "kaveen11111@gmail.com",
+                        to: "nimeshmakevita@gmail.com",
                         subject: "Unit and Integration Tests Successful: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
                         body: "The unit and integration tests were successful!.",
                         attachLog: true // Attach the log files
